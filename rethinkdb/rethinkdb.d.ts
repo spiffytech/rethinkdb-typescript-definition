@@ -3286,7 +3286,7 @@ declare module rethinkdb {
      *
      * http://rethinkdb.com/api/javascript/table_create
      */
-    tableCreate(tableName:r.stringLike, options?): RObject<any>;
+    tableCreate(tableName:r.stringLike, options?: {primaryKey?: string, durability?: "soft" | "hard", shards?: number, replicas?: number | {[key: string]: number}, primaryReplicaTag?: string}): RObject<any>;
 
     /**
      * Drop a table. The table and all its data will be deleted.

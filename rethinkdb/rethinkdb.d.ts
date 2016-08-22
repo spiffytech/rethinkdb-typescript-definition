@@ -2126,7 +2126,7 @@ declare module rethinkdb {
        * http://rethinkdb.com/api/javascript/eq
        */
       eq(value:this | T | string | number, ...values:Array<this | T | string | number>): RBool;
-      eq(value:this | T | string | number): RBool;
+      eq(value:this | T | string | number | null): RBool;
 
       /**
        * Compare values, testing if the left-hand value is greater than or equal to the right-hand.

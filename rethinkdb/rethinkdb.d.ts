@@ -294,7 +294,7 @@ declare module rethinkdb {
      *
      * http://rethinkdb.com/api/javascript/get
      */
-    get(key:KeyType): RSingleSelection<RemoteT>;
+    get(key:KeyType): RSingleSelection<RemoteT | null>;
 
     /**
      * Get all documents where the given value matches the value of the requested index.
@@ -534,7 +534,7 @@ declare module rethinkdb {
     <T extends Date>(attr:r.stringLike): RTime;
     <T extends {}>(attr:r.stringLike): RObject<T>;
   }
-  
+
   export interface RGetField extends RGetFieldBase {
     /**
      * Get a single field from an object. If called on a sequence, gets that field from every object in the sequence, skipping objects that lack it.
@@ -855,7 +855,7 @@ declare module rethinkdb {
         // NOTE: RValue<TOut> is needed when doing r.branch
         // NOTE: RValue<T> & RObject makes it more permissive (not exact type check here)
         map<TOut>(mappingExpression:RValue<TOut>|((item:RValue<T> & RObject<T>)=>TOut)):RStream<TOut>
-        
+
       }
       interface r {
         // there are only for r.map:
